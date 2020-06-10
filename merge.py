@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 with open("votes.txt") as v:
-    votes = v.read()
+    votes = v.readlines()
 
+votes=[v.split("#")[0].strip() for v in votes]
+votes = ",".join(votes)
 votes=[v.strip() for v in votes.split(",")]
 
 eager = set([int(v[:-1].strip()) for v in votes if v.endswith("*")])

@@ -11,7 +11,7 @@ This tool enables to download the list of titles and abstracts, send that to peo
 1) Log in to the CMT site. Extract cookie from the browser debug console (needed for the session). You can do this by inspecting the header of any request, and copying the cookie line from there.
 2) Create 'config.json' with cookie and conference name (see template below)
 3) Run download.py. This will create filtered.json with the raw data and output.txt which is a more human readable format with paper ordered by their relevance score. Send this to your collegues.
-4) Collect the votes of your collegues in a format of comma delimited ID lists, with stars after the "Eager" votes. The rest of them will be "Willing". An example list looks like "34,56*,1235*,64"
+4) Collect the votes of your collegues in a format of comma delimited ID lists, with stars after the "Eager" votes. The rest of them will be "Willing". An example list looks like "34,56*,1235*,64". You can use comments on end of line, separated by hashmark
 5) Paste all the ID lists in votes.txt (you can use spaces and newlines after commas)
 6) Optional: If you want to check how many votes are there and which papers are eagers and which willing, run "merge.py"
 7) Run bid.py
@@ -28,6 +28,6 @@ This tool enables to download the list of titles and abstracts, send that to peo
 ## Example "votes.txt"
 
 ```
-294*,432*,3901,5477*,5593*,6986,
-124*,589*,968*,136,3897,
+294*,432*,3901,5477*,5593*,6986 # From user1
+124*,589*,968*,136,3897 # Random comment
 ```
