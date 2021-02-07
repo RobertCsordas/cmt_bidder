@@ -15,13 +15,8 @@ r = requests.patch(URL, '{"requests":[{"url":"/api/odata/'+config["conference"]+
     }
 )
 
-data = r.text
-start = data.find("{")
-end = data.rfind("}")
-
-data = json.loads(data[start:end+1])
-
-data = data["value"]
+data = json.loads(r.text)
+data = data["responses"][0]["body"]["value"]
 
 keys = ['Id', 'Abstract', 'Title', 'PrimarySubject', 'SecondarySubject', 'Relevance', 'TpmsRank']
 data = [{k2: v[k2] for k2 in keys } for v in data]
